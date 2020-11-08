@@ -1,0 +1,286 @@
+* {
+    font-family: "Roboto Condensed", serif;
+    margin: 0;
+    padding: 0;
+}
+
+.form-buttons{
+    text-align: left;
+}
+
+.data-inputs{
+    width: 250px;
+}
+
+#demo{
+    display: inline-block;
+    width: 26px;
+}
+
+.range-input{
+    margin-top: 3%;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.group, .select-r{
+    display: inline-block;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1%;
+}
+
+.check-r-input, .check-x-input{
+    display: inline-block;
+    text-align: left;
+    width: 100px;
+    margin: 0;
+}
+
+.checkboxes-inputs{
+    display: flex;
+    align-items: flex-start;
+}
+
+@media (min-width: 100px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #table{
+        flex-grow: 1;
+    }
+
+    .form-inputs {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 1350px) {
+    .content {
+        flex-direction: row;
+    }
+
+    #table{
+        flex-grow: 1;
+    }
+
+    .form-inputs {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 1349px) {
+    .svg-coordinates {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .svg-coordinates > * {
+        margin: 0 3%;
+    }
+
+    #table{
+        flex-grow: 1;
+    }
+
+    .svg-graph {
+        margin: 0;
+    }
+
+    .coordinates-form {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .coordinates-form > * {
+        margin: auto 40px;
+    }
+}
+
+@media (max-width: 820px) {
+    .coordinates-form {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .svg-coordinates {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .svg-graph {
+        margin: 0 auto;
+    }
+
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #table{
+        flex-grow: 1;
+    }
+}
+
+.group, .select-r, button, .coordinates-form {
+    margin: 1%;
+}
+
+.header {
+    font-size: x-large;
+    color: white;
+    padding: 1%;
+    background-color: #A62290;
+}
+
+button {
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    padding: .8em 1em calc(.8em + 3px);
+    border-radius: 3px;
+    background: #74C046;
+    box-shadow: 0 -3px rgb(53, 167, 110) inset;
+    transition: 0.2s;
+    border-width: 0;
+}
+
+#clear-button {
+    background: red;
+    box-shadow: 0 -3px firebrick inset;
+}
+
+#clear-button:hover {
+    background: firebrick;
+}
+
+#clear-button:active {
+    background: darkred;
+    box-shadow: 0 3px darkred inset;
+}
+
+button:hover {
+    background: rgb(53, 167, 110);
+    cursor: pointer;
+}
+
+button:active {
+    background: rgb(33, 147, 90);
+    box-shadow: 0 3px rgb(33, 147, 90) inset;
+}
+
+input[type="text"] {
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    width: 100px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+.group > label {
+    color: #999;
+    font-size: 18px;
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 15px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.group input[type="text"]:focus ~ label, input[type="text"]:valid ~ label {
+    top: -15px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 130px;
+}
+
+.bar:before, .bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+input[type="text"]:focus ~ .bar:before,
+input[type="text"]:focus ~ .bar:after {
+    width: 50%;
+}
+
+.group {
+    width: 200px;
+    position: relative;
+}
+
+th, td{
+    border: 1px solid;
+    mso-border-shadow: no;
+    font-family: 'Roboto Condensed', serif;
+}
+
+th{
+    background-color: #00AEAF;
+}
+
+#coordinates-table{
+    border-collapse: collapse;
+    mso-border-shadow: no;
+    border-spacing: 0;
+}
+
+#svg{
+    border: 5px solid;
+    border-radius: 10px 20px;
+    border-color: #00AEAF;
+}

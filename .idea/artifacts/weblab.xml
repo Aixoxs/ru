@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="weblab">
+    <output-path>$PROJECT_DIR$/out/artifacts/weblab</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ru/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ru" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
