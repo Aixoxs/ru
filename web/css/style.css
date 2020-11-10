@@ -284,3 +284,8 @@ th{
     border-radius: 10px 20px;
     border-color: #00AEAF;
 }
+
+#error-num{
+    font-size: 50px;
+    color: red;
+}

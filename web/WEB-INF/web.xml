@@ -38,4 +38,9 @@
     <session-config>
         <session-timeout>600</session-timeout>
     </session-config>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
 </web-app>

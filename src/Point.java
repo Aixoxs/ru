@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 
 public class Point {
     private double x, y, time;
@@ -21,11 +23,16 @@ public class Point {
     }
 
     private String checkResult(double x, int r, double y) {
-        if ((x >= -r && x <= 0 && y >= 0 && y <=r) ||
+        if (valid(x,r,y)&&((x >= -r && x <= 0 && y >= 0 && y <=r) ||
                 (y >= -x-r && y <= 0 && x <= 0) ||
-                ((x*x + y*y) <= (float)r*r/4 && x >= 0 && y <= 0)){
+                ((x*x + y*y) <= (float)r*r/4 && x >= 0 && y <= 0))){
             return "True";
         }else return "False";
+    }
+
+    private boolean valid(double x, int r, double y) {
+        int[] rVal = new int[] {1,2,3,4,5};
+        return Arrays.asList(rVal).contains(r);
     }
 
     public void setTime(double time) {
@@ -80,8 +87,7 @@ public class Point {
         this.result = result;
     }
 
-    @Override
-    public String toString() {
+    public String toJson() {
         return "{" +
                 "\"x\":\"" + x+ "\"," +
                 "\"y\":\"" + y+ "\"," +
@@ -89,5 +95,35 @@ public class Point {
                 "\"result\":\"" + result+ "\"," +
                 "\"current_time\":\"" + currentDate+ "\"," +
                 "\"time\":\"" + time+ "\"}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Point)) return false;
+        Point point = (Point) o;
+        return Double.compare(point.getX(), getX()) == 0 &&
+                Double.compare(point.getY(), getY()) == 0 &&
+                Double.compare(point.getTime(), getTime()) == 0 &&
+                getR() == point.getR() &&
+                getCurrentDate().equals(point.getCurrentDate()) &&
+                getResult().equals(point.getResult());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getX(), getY(), getTime(), getR(), getCurrentDate(), getResult());
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                ", time=" + time +
+                ", r=" + r +
+                ", currentDate=" + currentDate +
+                ", result='" + result + '\'' +
+                '}';
     }
 }
