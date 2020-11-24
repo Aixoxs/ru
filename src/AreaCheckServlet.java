@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 @WebServlet
 public class AreaCheckServlet extends HttpServlet {
@@ -66,10 +67,10 @@ public class AreaCheckServlet extends HttpServlet {
         int[] rVal = new int[] {1,2,3,4,5};
         int[] xVal = new int[] {-5,-4,-3,-2,-1,0,1,2,3};
         if (method.equals("form")) {
-            return Arrays.asList(rVal).contains(r) && Arrays.asList(xVal).contains(x)
-                    && y < 5 && y > 5;
+            return IntStream.of(rVal).anyMatch(z->z==r) && IntStream.of(xVal).anyMatch(z->z==x)
+                    && y < 5 && y > -5;
         }else {
-            return Arrays.asList(rVal).contains(r) && x <= 1.5 * r && x >= -1.5 * r
+            return IntStream.of(rVal).anyMatch(z->z==r) && x <= 1.5 * r && x >= -1.5 * r
                     && y <= 1.5 * r && y >= -1.5 * r;
         }
     }

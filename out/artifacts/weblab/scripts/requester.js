@@ -12,13 +12,13 @@ function sendRequest(xVal, arrayCheckedR, yVal, key) {
     $.ajax({
         type: "POST",
         url: "control",
-        data: "x=" + encodeURIComponent(xVal) + "&y=" + encodeURIComponent(yVal) +
+        data: "x=" + encodeURIComponent(xVal) + "&y=" + encodeURIComponent(yVal)+
             "&r=" + encodeURIComponent(arrayCheckedR) + "&key=" + encodeURIComponent(key),
         success: function (xhr) {
             document.getElementById("table").innerHTML = xhr;
         },
         error: function (xhr) {
-            document.getElementById("error-log").textContent = xhr;
+            document.getElementById("error-log").innerHTML = xhr.responseText;
         }
     })
 }

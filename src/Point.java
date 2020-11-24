@@ -23,11 +23,15 @@ public class Point {
     }
 
     private String checkResult(double x, int r, double y) {
-        if (valid(x,r,y)&&((x >= -r && x <= 0 && y >= 0 && y <=r) ||
+        if ((x >= -r && x <= 0 && y >= 0 && y <=r) ||
                 (y >= -x-r && y <= 0 && x <= 0) ||
-                ((x*x + y*y) <= (float)r*r/4 && x >= 0 && y <= 0))){
+                ((x*x + y*y) <= (float)r*r/4 && x >= 0 && y <= 0)){
+            System.out.println(1);
             return "True";
-        }else return "False";
+        }else {
+            System.out.println(2);
+            return "False";
+        }
     }
 
     private boolean valid(double x, int r, double y) {
